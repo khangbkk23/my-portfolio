@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-
+import { BackgroundGradientAnimation } from "./GradienBg";
 export const BentoGrid = ({
     className,
     children,
@@ -44,7 +44,7 @@ export const BentoGridItem = ({ className, title, description, header, icon, id,
                 backgroundColor: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
             }}
         >
-            <div className={`${ id === 6 } && 'flex justify-center h-full'`}>
+            <div className={`${id === 6} && 'flex justify-center h-full'`}>
                 <div className="w-full h-full absolute">
                     <img
                         src={img}
@@ -54,6 +54,21 @@ export const BentoGridItem = ({ className, title, description, header, icon, id,
                     </img>
                 </div>
             </div>
+            <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"} `}
+            >{spareImg && (
+                <img
+                    src={spareImg}
+                    alt={spareImg}
+                    //   width={220}
+                    className="object-cover object-center w-full h-full"
+                />
+            )}
+            </div>
+            {id === 6 && (
+                <BackgroundGradientAnimation>
+                    <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
+                </BackgroundGradientAnimation>
+            )}
             {header}
 
             <div className="group-hover/bento:translate-x-2 transition duration-200">
