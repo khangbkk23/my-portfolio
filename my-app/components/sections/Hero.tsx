@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { profile, skills } from "@/data/profile";
 
-const fadeUp = (delay = 0) => ({
+const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, delay, ease: "easeOut" },
