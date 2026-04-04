@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  portfolio:
+    image: your-dockerhub-username/portfolio:latest
+    container_name: kelvin_portfolio
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - web
+
+networks:
+  web:

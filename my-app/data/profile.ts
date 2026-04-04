@@ -231,8 +231,8 @@ export const certificates = [
 
 export const activities = [
   "Member of the Executive Committee, Ho Chi Minh Communist Youth Union – Faculty of CSE",
-  "Leader – Volunteer campaign "Xuân Tình Nguyện" 2025, Faculty of CSE",
-  "Vice Leader – Volunteer campaign "Mùa Hè Xanh" 2024, Ho Chi Minh City Front, Faculty of CSE",
+  'Leader – Volunteer campaign "Xuân Tình Nguyện" 2025, Faculty of CSE',
+  'Vice Leader – Volunteer campaign "Mùa Hè Xanh" 2024, Ho Chi Minh City Front, Faculty of CSE',
   "Vice Leader – CSE Summer School 2024, Faculty of CSE",
 ];
 
