@@ -4,6 +4,7 @@ import { TextGenerateEffect } from '@/components/ui/TextGeneratedEffect'
 import MagicButton from "@/components/ui/MagicButton"
 import { cn } from '@/lib/utils'
 import { FaLocationArrow } from "react-icons/fa6";
+
 const Hero = () => {
     return (
         <div className='pb-20 pt-36'>
@@ -28,10 +29,9 @@ const Hero = () => {
                     </h2>
                     <TextGenerateEffect className='text-center text-[40px] md:text-5xl lg:text-6xl'
                         words='Duy Khang is the greatest boy in the world!'>
-
                     </TextGenerateEffect>
                     <p className='text-center tracking-wider text-sm md:text-lg lg:text-2xl'>
-                        Hi, I&apos;m Duy Khang, a Fresher AI Engineer and I'm from Vietnam. To be easier, you can call me as Kelvin.
+                        Hi, I&apos;m Duy Khang, a Fresher AI Engineer and I&apos;m from Vietnam. To be easier, you can call me as Kelvin.
                     </p>
                     <a href='#about'>
                         <MagicButton
@@ -41,7 +41,6 @@ const Hero = () => {
                         />
                     </a>
                 </div>
-
             </div>
         </div>
     )

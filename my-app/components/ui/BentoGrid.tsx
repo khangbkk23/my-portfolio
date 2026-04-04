@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import { BackgroundGradientAnimation } from "./GradienBg";
+
 export const BentoGrid = ({
     className,
     children,
@@ -20,7 +21,7 @@ export const BentoGrid = ({
     );
 };
 
-export const BentoGridItem = ({ className, title, description, header, icon, id, img, imgClassName, titleClassName, spareImg }:
+export const BentoGridItem = ({ className, title, description, header, icon, id, img, imgClassName, titleClassName, sparseImg }:
     {
         className?: string;
         title?: string | React.ReactNode;
@@ -31,7 +32,7 @@ export const BentoGridItem = ({ className, title, description, header, icon, id,
         img?: string;
         imgClassName?: string;
         titleClassName?: string;
-        spareImg?: string;
+        sparseImg?: string;
     }) => {
     return (
         <div
@@ -44,25 +45,23 @@ export const BentoGridItem = ({ className, title, description, header, icon, id,
                 backgroundColor: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
             }}
         >
-            <div className={`${id === 6} && 'flex justify-center h-full'`}>
+            <div className={id === 6 ? "flex justify-center h-full" : ""}>
                 <div className="w-full h-full absolute">
                     <img
                         src={img}
                         alt={img}
-                        className={cn(imgClassName, 'object-cover, object-center')}
-                    >
-                    </img>
+                        className={cn(imgClassName, 'object-cover object-center')}
+                    />
                 </div>
             </div>
-            <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"} `}
-            >{spareImg && (
-                <img
-                    src={spareImg}
-                    alt={spareImg}
-                    //   width={220}
-                    className="object-cover object-center w-full h-full"
-                />
-            )}
+            <div className={`absolute right-0 -bottom-5 ${id === 5 ? "w-full opacity-80" : ""}`}>
+                {sparseImg && (
+                    <img
+                        src={sparseImg}
+                        alt={sparseImg}
+                        className="object-cover object-center w-full h-full"
+                    />
+                )}
             </div>
             {id === 6 && (
                 <BackgroundGradientAnimation>
@@ -72,11 +71,9 @@ export const BentoGridItem = ({ className, title, description, header, icon, id,
             {header}
 
             <div className="group-hover/bento:translate-x-2 transition duration-200">
-
                 <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
                     {title}
                 </div>
-
                 <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
                     {description}
                 </div>

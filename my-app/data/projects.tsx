@@ -1,11 +1,11 @@
 export type Project = {
-  id: number
-  title: string
-  description: string
-  tech: string[]
-  github: string
-  demo?: string
-}
+  id: number;
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  demo?: string;
+};
 
 export const projects: Project[] = [
   {
@@ -23,4 +23,28 @@ export const projects: Project[] = [
     tech: ["Next.js", "Tailwind"],
     github: "https://github.com/your-repo",
   }
-]
+];
+
+export interface GridItemProps {
+  id: number;
+  title: string;
+  description: string;
+  className?: string;
+  img?: string;
+  imgClassName?: string;
+  titleClassName?: string;
+  spareImg?: string;
+}
+
+export const gridItems: GridItemProps[] = [
+  {
+    id: 1,
+    title: "Example Bento Title",
+    description: "Example Bento Description",
+    className: "md:col-span-2",
+    img: "/bg.png",
+    imgClassName: "w-full h-full",
+    titleClassName: "justify-end",
+    spareImg: "/b4.svg",
+  }
+];
