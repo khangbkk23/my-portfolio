@@ -1,6 +1,8 @@
 "use client";
 
-import { motion, HTMLMotionProps } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { motion, HTMLMotionProps } from "framer-motion"; // Or "motion/react"
 import { profile, skills } from "@/data/profile";
 
 const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
@@ -10,13 +12,45 @@ const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
 });
 
 export default function Hero() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-center pt-24 pb-16 relative">
+      
+      {/* Theme Toggle Button */}
+      {mounted && (
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="fixed top-6 right-6 z-50 p-3 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-black/50 backdrop-blur-md text-neutral-800 dark:text-neutral-200 hover:scale-105 transition-all duration-200"
+          aria-label="Toggle Dark Mode"
+        >
+          {theme === "dark" ? (
+            // Sun Icon
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          ) : (
+            // Moon Icon
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          )}
+        </motion.button>
+      )}
+
       {/* Top label */}
       <motion.div {...fadeUp(0)} className="mb-6">
         <span className="inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
           <span className="w-8 h-px bg-neutral-300 dark:bg-neutral-700" />
-          Portfolio 2025
+          Student Portfolio
         </span>
       </motion.div>
 
