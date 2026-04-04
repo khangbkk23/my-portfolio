@@ -72,7 +72,7 @@ export default function Hero() {
       {/* Summary */}
       <motion.p
         {...fadeUp(0.2)}
-        className="max-w-xl text-base md:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8"
+        className="max-w-xl text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8"
       >
         {profile.summary}
       </motion.p>
