@@ -10,9 +10,11 @@ import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Certificates from "@/components/sections/Certificates";
 import Contact from "@/components/sections/Contact";
+import Rewards from "@/components/sections/Rewards";
 import {
   FaHome, FaUserAlt, FaLaptopCode,
   FaBrain, FaCertificate, FaEnvelope,
+  FaMedal,
 } from "react-icons/fa";
 
 const navItems = [
@@ -22,12 +24,12 @@ const navItems = [
   { name: "Skills",       link: "#skills",       icon: <FaBrain /> },
   { name: "Certificates", link: "#certificates", icon: <FaCertificate /> },
   { name: "Contact",      link: "#contact",      icon: <FaEnvelope /> },
+  { name: "Rewards",      link: "#rewards",      icon: <FaMedal /> },    
 ];
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
 
-  // Allow Enter key to skip intro
   useEffect(() => {
     if (!showIntro) return;
     const handler = (e: KeyboardEvent) => {
@@ -63,6 +65,10 @@ export default function Home() {
             <section id="projects">
               <Projects />
             </section>
+            
+            <section id="rewards">
+              <Rewards />
+            </section>
 
             <section id="skills">
               <Skills />
@@ -75,6 +81,7 @@ export default function Home() {
             <section id="contact">
               <Contact />
             </section>
+
           </motion.div>
         )}
       </AnimatePresence>

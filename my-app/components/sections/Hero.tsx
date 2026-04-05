@@ -1,9 +1,10 @@
+// components/sections/Hero.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, HTMLMotionProps } from "framer-motion";
-import { profile, skills } from "@/data/profile";
+import { profile, skills } from "@/data/profile"; // Đã bỏ import rewards
 
 const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
     initial: { opacity: 0, y: 40 },
@@ -84,7 +85,6 @@ export default function Hero() {
 
             {/* Goals */}
             <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 mb-10">
-
                 <motion.div
                     whileHover={{ y: -6, scale: 1.02, boxShadow: "0px 10px 40px rgba(99,102,241,0.15)" }}
                     transition={{ type: "spring", stiffness: 200 }}
@@ -120,7 +120,6 @@ export default function Hero() {
 
             {/* Buttons */}
             <motion.div {...fadeUp(0.5)} className="flex flex-wrap gap-3 items-center">
-
                 <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -151,7 +150,7 @@ export default function Hero() {
                 </motion.a>
             </motion.div>
 
-            {/* Scroll */}
+            {/* Scroll Indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

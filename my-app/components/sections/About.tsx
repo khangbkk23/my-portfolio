@@ -130,7 +130,7 @@ export default function About() {
                                                 rel="noreferrer"
                                                 className="text-xs font-medium text-indigo-500 hover:underline"
                                             >
-                                                Repo ↗
+                                                Repository
                                             </a>
                                         </div>
                                     </div>
