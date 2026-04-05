@@ -29,16 +29,6 @@ export default function About() {
                 {profile.summary}
             </p>
 
-            <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-xs text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-6"
-            >
-                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
-                {profile.city} · From {profile.countryside}
-            </motion.p>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

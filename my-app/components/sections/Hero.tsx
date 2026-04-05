@@ -71,11 +71,6 @@ export default function Hero() {
                 <span className="text-neutral-400 dark:text-neutral-500">AI Engineer | Data Scientist</span>
             </motion.h1>
 
-            {/* Summary */}
-            <motion.p {...fadeUp(0.2)} className="max-w-2xl text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed mb-5">
-                {profile.summary}
-            </motion.p>
-
             <motion.p
             {...fadeUp(0.25)}
             className="text-sm text-neutral-400 max-w-xl"
@@ -83,10 +78,20 @@ export default function Hero() {
             I build end-to-end ML systems from data to deployment, with a strong focus on research-driven experimentation.
             </motion.p>
 
+            <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-xs text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-6"
+            >
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                {profile.city} · From {profile.countryside}
+            </motion.p>
+
             {/* Goals */}
             <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 mb-10">
 
-                {/* 🔥 hover card */}
                 <motion.div
                     whileHover={{ y: -6, scale: 1.02, boxShadow: "0px 10px 40px rgba(99,102,241,0.15)" }}
                     transition={{ type: "spring", stiffness: 200 }}
