@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { profile, skills } from "@/data/profile";
 
-// 🔥 upgrade: scroll reveal thay vì animate luôn
 const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
@@ -77,8 +76,11 @@ export default function Hero() {
                 {profile.summary}
             </motion.p>
 
-            <motion.p {...fadeUp(0.25)} className="text-sm text-neutral-400 max-w-xl">
-                Built scalable AI systems across Computer Vision, Natural Language Processing, and Reinforcement Learning.
+            <motion.p
+            {...fadeUp(0.25)}
+            className="text-sm text-neutral-400 max-w-xl"
+            >
+            I build end-to-end ML systems from data to deployment, with a strong focus on research-driven experimentation.
             </motion.p>
 
             {/* Goals */}

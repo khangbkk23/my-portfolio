@@ -49,6 +49,17 @@ const links = [
         ),
         color: "text-emerald-500",
     },
+    {
+        label: "Location",
+        value: `${profile.city}`,
+        href: "#",
+        icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4.5-4.5-7.5-7.5-7.5-11.25A7.5 7.5 0 0112 2.25a7.5 7.5 0 017.5 7.5c0 3.75-3 6.75-7.5 11.25z" />
+            </svg>
+        ),
+        color: "text-rose-500",
+    }
 ];
 
 export default function Contact() {
