@@ -69,11 +69,11 @@ export default function Hero() {
                     </span>
                 </span>
                 <br />
-                <span className="text-neutral-400 dark:text-neutral-500">AI Engineer</span>
+                <span className="text-neutral-400 dark:text-neutral-500">AI Engineer | Data Scientist</span>
             </motion.h1>
 
             {/* Summary */}
-            <motion.p {...fadeUp(0.2)} className="max-w-xl text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8">
+            <motion.p {...fadeUp(0.2)} className="max-w-2xl text-lg md:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed mb-5">
                 {profile.summary}
             </motion.p>
 
