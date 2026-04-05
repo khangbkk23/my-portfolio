@@ -16,12 +16,10 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
             transition={{ duration: 0.6 }}
             className="h-screen w-full flex flex-col justify-center items-center px-5 relative overflow-hidden"
         >
-            {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 animate-pulse" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
             <div className="absolute w-[600px] h-[600px] bg-purple-500/10 blur-[140px] rounded-full" />
 
-            {/* Floating dots (Đã phóng to w-5 h-5) */}
             {[
                 "top-20 left-10 bg-violet-400",
                 "top-40 right-20 bg-indigo-400",
@@ -36,7 +34,6 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                 />
             ))}
 
-            {/* Content (Đã tăng max-w-5xl và gap-8 để thoáng hơn) */}
             <div className="relative z-10 flex flex-col items-center text-center max-w-4xl gap-6">
 
                 <motion.div
@@ -56,8 +53,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     </span>
                 </motion.div>
 
-                {/* Name (Phóng cực to: text-6xl đến text-8xl) */}
-                <motion.h1 className="text-5xl md:text-7xl lg:text-6xl font-bold tracking-tight">
+                <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold tracking-tight">
                     {profile.name.split("").map((char, i) => (
                         <motion.span
                             key={i}
@@ -107,7 +103,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             key={i}
                             className="
                                 px-6 py-2.5 rounded-full text-base font-medium backdrop-blur-md
-                                bg-white/5 text-neutral-300 
+                                bg-white/5 text-neutral-800 
                                 border border-neutral-700
                                 hover:border-neutral-400 hover:text-white
                                 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]
