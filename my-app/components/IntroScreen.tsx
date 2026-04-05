@@ -23,10 +23,10 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
 
             {/* Floating dots */}
             {[
-                "top-20 left-10 bg-emerald-400",
-                "top-40 right-20 bg-cyan-400",
+                "top-20 left-10 bg-violet-400",
+                "top-40 right-20 bg-indigo-400",
                 "bottom-32 left-20 bg-blue-400",
-                "bottom-20 right-10 bg-emerald-300",
+                "bottom-20 right-10 bg-purple-300",
             ].map((pos, i) => (
                 <motion.div
                     key={i}
@@ -45,14 +45,14 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                     className="flex items-center gap-2 px-4 py-1.5 rounded-full 
-                    bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md"
+                    bg-violet-500/10 border border-violet-500/20 backdrop-blur-md"
                 >
                     <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
                     </span>
 
-                    <span className="text-xs tracking-wide text-emerald-400 font-medium">
+                    <span className="text-xs tracking-wide text-violet-300 font-medium">
                         Actively seeking opportunities
                     </span>
                 </motion.div>
@@ -91,7 +91,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     If you want to be the best, you have to do the things that other people aren’t willing to do.
                 </motion.p>
 
-                {/* 🔥 Info tags (redesign) */}
+                {/* 🔥 Info tags */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -99,23 +99,24 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     className="flex flex-wrap justify-center gap-3 mt-2"
                 >
                     {[
-                        { label: "GPA 3.71", highlight: true },
-                        { label: "TOEIC L&R 855" },
-                        { label: "Computer Vision" },
-                        { label: "NLP" },
-                        { label: "Agentic AI Systems" },
-                    ].map((item, i) => (
+                        "GPA 3.71",
+                        "TOEIC L&R 855",
+                        "Computer Vision",
+                        "NLP",
+                        "Agentic AI Systems",
+                    ].map((label, i) => (
                         <span
                             key={i}
-                            className={`
+                            className="
                                 px-4 py-1.5 rounded-full text-sm backdrop-blur-md
-                                border transition-all
-                                ${item.highlight
-                                    ? "bg-emerald-500/10 text-emerald-400 border-emerald-400/30"
-                                    : "bg-white/5 text-neutral-400 border-neutral-700 hover:border-neutral-500"}
-                            `}
+                                bg-white/5 text-neutral-300 
+                                border border-neutral-700
+                                hover:border-neutral-500 hover:text-white
+                                hover:shadow-[0_0_12px_rgba(139,92,246,0.25)]
+                                transition-all
+                            "
                         >
-                            {item.label}
+                            {label}
                         </span>
                     ))}
                 </motion.div>
@@ -131,7 +132,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         onClick={onEnter}
                         className="relative mt-6 inline-flex overflow-hidden rounded-full p-[2px] group"
                     >
-                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#34d399_0%,#22d3ee_50%,#34d399_100%)]" />
+                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#8b5cf6_0%,#6366f1_50%,#8b5cf6_100%)]" />
 
                         <span className="relative flex items-center justify-center px-10 py-4 rounded-full text-sm font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
                             Explore My Work →
@@ -148,10 +149,10 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         transition={{ delay: 1.3 }}
                         className="relative mt-6 inline-flex overflow-hidden rounded-full p-[2px] group"
                     >
-                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#f472b6_50%,#c084fc_100%)]" />
+                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a78bfa_0%,#f472b6_50%,#a78bfa_100%)]" />
 
                         <span className="relative flex items-center justify-center px-10 py-4 rounded-full text-sm font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
-                            Download my CV
+                            Download my CV!
                         </span>
                     </motion.a>
                 </div>
