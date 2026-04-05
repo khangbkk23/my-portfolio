@@ -19,7 +19,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 animate-pulse" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
-            <div className="absolute w-[800px] h-[800px] bg-purple-500/10 blur-[140px] rounded-full" />
+            <div className="absolute w-[600px] h-[600px] bg-purple-500/10 blur-[140px] rounded-full" />
 
             {/* Floating dots (Đã phóng to w-5 h-5) */}
             {[
@@ -37,9 +37,8 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
             ))}
 
             {/* Content (Đã tăng max-w-5xl và gap-8 để thoáng hơn) */}
-            <div className="relative z-10 flex flex-col items-center text-center max-w-5xl gap-8">
+            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl gap-6">
 
-                {/* 🔥 Status badge (Đã phóng to) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -58,7 +57,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                 </motion.div>
 
                 {/* Name (Phóng cực to: text-6xl đến text-8xl) */}
-                <motion.h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tight">
+                <motion.h1 className="text-5xl md:text-7xl lg:text-6xl font-bold tracking-tight">
                     {profile.name.split("").map((char, i) => (
                         <motion.span
                             key={i}
@@ -76,7 +75,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="text-xl md:text-2xl lg:text-3xl tracking-widest uppercase text-neutral-500 font-medium"
+                    className="text-lg md:text-xl lg:text-2xl tracking-widest uppercase text-neutral-500 font-medium"
                 >
                     {profile.title}
                 </motion.p>
@@ -86,12 +85,11 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
-                    className="text-lg md:text-xl lg:text-2xl text-neutral-400 max-w-4xl leading-relaxed"
+                    className="text-base md:text-lg lg:text-xl text-neutral-400 max-w-4xl leading-relaxed"
                 >
                     If you want to be the best, you have to do the things that other people aren’t willing to do.
                 </motion.p>
 
-                {/* 🔥 Info tags (Phóng to text-base, padding to hơn) */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -121,7 +119,6 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     ))}
                 </motion.div>
 
-                {/* Buttons (Phóng to nút, CHUẨN HOÁ hiệu ứng xoay viền) */}
                 <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
                     
                     {/* Nút 1: Explore */}
@@ -134,19 +131,16 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         onClick={onEnter}
                         className="relative inline-flex overflow-hidden rounded-full p-[2px] group"
                     >
-                        {/* Viền xoay (Fix 100% chạy mượt) */}
                         <span 
                             className="absolute inset-[-1000%] animate-spin bg-[conic-gradient(from_90deg_at_50%_50%,#8b5cf6_0%,#6366f1_50%,#8b5cf6_100%)]" 
                             style={{ animationDuration: '3s' }}
                         />
 
-                        {/* Nền trong */}
                         <span className="relative flex items-center justify-center px-12 py-5 rounded-full text-base md:text-lg font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Explore My Work →
                         </span>
                     </motion.button>
 
-                    {/* Nút 2: Download CV */}
                     <motion.a
                         href="/resume_khangbuitranduy_v3.2_updated.pdf"
                         download
@@ -162,7 +156,6 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             style={{ animationDuration: '3s' }}
                         />
 
-                        {/* Nền trong */}
                         <span className="relative flex items-center justify-center px-12 py-5 rounded-full text-base md:text-lg font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Download my CV!
                         </span>
