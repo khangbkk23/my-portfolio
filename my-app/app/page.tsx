@@ -50,7 +50,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="max-w-5xl w-full sm:px-10 px-5"
+                        className="w-full"
                     >
                         <FloatingNavBar navItems={navItems} />
 
@@ -58,30 +58,31 @@ export default function Home() {
                             <Hero />
                         </section>
 
-                        <section id="about">
-                            <About />
-                        </section>
+                        <div className="max-w-5xl w-full mx-auto sm:px-10 px-5">
+                            <section id="about">
+                                <About />
+                            </section>
 
-                        <section id="projects">
-                            <Projects />
-                        </section>
+                            <section id="projects">
+                                <Projects />
+                            </section>
 
-                        <section id="skills">
-                            <Skills />
-                        </section>
+                            <section id="skills">
+                                <Skills />
+                            </section>
 
-                        <section id="rewards">
-                            <Rewards />
-                        </section>
+                            <section id="rewards">
+                                <Rewards />
+                            </section>
 
-                        <section id="certificates">
-                            <Certificates />
-                        </section>
+                            <section id="certificates">
+                                <Certificates />
+                            </section>
 
-                        <section id="contact">
-                            <Contact />
-                        </section>
-
+                            <section id="contact">
+                                <Contact />
+                            </section>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
