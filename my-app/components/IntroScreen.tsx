@@ -1,4 +1,3 @@
-// components/IntroScreen.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -11,103 +10,98 @@ interface IntroScreenProps {
 export default function IntroScreen({ onEnter }: IntroScreenProps) {
   return (
     <motion.div
-      key="intro-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
-      className="h-screen w-full flex flex-col justify-center items-center sm:px-10 px-5 relative overflow-hidden"
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.6 }}
+      className="h-screen w-full flex flex-col justify-center items-center px-5 relative overflow-hidden"
     >
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:48px_48px] dark:opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 animate-pulse" />
 
-      {/* Glowing blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-500/10 dark:bg-purple-400/5 blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      <div className="relative z-10 flex flex-col items-center gap-6 text-center max-w-3xl">
-        {/* Badge */}
+      <div className="absolute w-[600px] h-[600px] bg-purple-500/10 blur-[120px] rounded-full" />
+
+      <div className="relative z-10 flex flex-col items-center text-center max-w-3xl gap-6">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm text-xs font-medium text-neutral-500 dark:text-neutral-400 tracking-wider uppercase"
+          className="px-4 py-1.5 rounded-full border text-xs tracking-widest uppercase
+          bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm
+          text-neutral-500 border-neutral-200 dark:border-neutral-700"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Open to opportunities
+        Open to opportunities
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.7 }}
-          className="text-5xl md:text-7xl font-bold text-black dark:text-white tracking-tight leading-none"
+          className="text-5xl md:text-7xl font-bold tracking-tight"
         >
-          {profile.name}
+          {profile.name.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 + i * 0.03 }}
+            >
+              {char}
+            </motion.span>
+          ))}
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-lg md:text-xl font-medium text-neutral-500 dark:text-neutral-400 tracking-widest uppercase"
+          transition={{ delay: 0.6 }}
+          className="text-lg md:text-xl tracking-widest uppercase text-neutral-500"
         >
           {profile.title}
         </motion.p>
 
-        {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          className="text-base md:text-lg text-neutral-500 dark:text-neutral-500 max-w-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="text-base md:text-lg text-neutral-400 max-w-xl"
         >
-          {profile.tagline}
+          Building intelligent systems that learn, adapt, and scale.
         </motion.p>
 
-        {/* Quick stats */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75 }}
-          className="flex items-center gap-6 text-sm text-neutral-400 dark:text-neutral-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="flex gap-6 text-sm text-neutral-400"
         >
-          <span>GPA 3.71 / 4.00</span>
-          <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
-          <span>TOEIC L&R 855</span>
-          <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
+          <span className="text-emerald-500 font-semibold">GPA 3.71</span>
+          <span>TOEIC 855</span>
           <span>Computer Vision</span>
-          <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
           <span>Natural Language Processing</span>
-          <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
-          <span>Generative AI</span>
+          <span>Agentic AI</span>
         </motion.div>
 
-        <motion.div
+        <motion.button
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, type: "spring", stiffness: 300 }}
-          className="mt-4"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ delay: 1.2, type: "spring", stiffness: 300 }}
+          onClick={onEnter}
+          className="relative mt-6 px-10 py-4 rounded-full text-sm font-semibold
+          bg-black text-white dark:bg-white dark:text-black
+          shadow-lg hover:shadow-xl transition"
         >
-          <button
-            onClick={onEnter}
-            className="relative inline-flex h-14 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black"
-          >
-            <span className="absolute inset-[-1000%] animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-950 px-10 text-sm font-semibold text-black dark:text-white backdrop-blur-3xl transition-colors hover:bg-neutral-50 dark:hover:bg-slate-900">
-              Explore Portfolio
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </button>
-        </motion.div>
+          Explore My Work →
+        </motion.button>
+
       </div>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.3 }}
-        className="absolute bottom-10 text-base text-neutral-400 dark:text-neutral-600"
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-10 text-sm text-neutral-400"
       >
         Press Enter or click to begin
       </motion.p>
