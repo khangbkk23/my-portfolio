@@ -2,18 +2,19 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 
 type Message = {
     id: string;
     role: "user" | "assistant";
     content: string;
-    tech?: string;
 };
 
 const SUGGESTED_QUESTIONS = [
     "What projects has Khang built?",
     "What are his technical skills?",
-    "Khang đang học gì?",
+    "Khang đang sống và làm việc ở đâu?",
+    "Khang có thành tích gì nổi bật không?",
     "How can I contact Khang?",
 ];
 
@@ -24,7 +25,6 @@ export default function ChatWidget() {
             id: "welcome",
             role: "assistant",
             content: "Hi! I'm Khang's AI assistant 👋 Ask me anything about his skills, projects, or background — in English or Vietnamese!",
-            tech: "I built as a GraphRAG with LangChain and LangGraph."
         },
     ]);
     const [input, setInput] = useState("");
@@ -146,7 +146,9 @@ export default function ChatWidget() {
                                                 : "bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-bl-sm"
                                             }`}
                                     >
-                                        {msg.content}
+                                        <ReactMarkdown>
+                                            {msg.content}
+                                        </ReactMarkdown>
                                     </div>
                                 </motion.div>
                             ))}
