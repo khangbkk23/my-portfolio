@@ -13,6 +13,7 @@
     "@tabler/icons-react": "^3.36.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.27.1",
+    "groq-sdk": "^1.1.2",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.27.2",
     "next": "16.1.4",
