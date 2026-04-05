@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dikhang's Portfolio",
-  description: "Modern and minimalist JS mastery portfolio",
+  title: "Khang Bui - AI Engineer",
+  description: "AI Engineer Portfolio",
+  icons: {
+    icon: "/icon.png", 
+  },
 };
 
 export default function RootLayout({

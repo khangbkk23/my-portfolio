@@ -14,7 +14,7 @@ export const profile = {
         "Become a core AI Engineer, pursue advanced international education, and return to drive high-impact R&D initiatives.",
     contact: {
         phone: "(+84) 815 594 665",
-        email: "buitranduykhang2005@gmail.com",
+        email: "kelvin.duykhang.dev@gmail.com",
         github: "khangbkk23",
         linkedin: "khangbkk23",
     },
