@@ -57,8 +57,6 @@ export const skills = {
     tools: ["Git", "Conda", "Poetry"],
 };
 
-// ── Projects ──────────────────────────────────────────────────────────────────
-
 export type Project = {
     id: number;
     title: string;

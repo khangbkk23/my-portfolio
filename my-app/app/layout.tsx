@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Khang Bui - AI Engineer",
+  title: "Duy Khang - AI Engineer",
   description: "AI Engineer Portfolio",
   icons: {
-    icon: "/icon.png", 
+    icon: "/icon.PNG", 
   },
 };
 
