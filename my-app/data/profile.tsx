@@ -238,3 +238,22 @@ export const languages = [
         level: "TOEIC L&R: 855 — technical discussions, documentation, cross-cultural collaboration",
     },
 ];
+export const rewards = [
+    {
+        title: '"Student with 03 Merits" at the Central Level',
+        level: "Central"
+    },
+    {
+     title: "Provincial Excellent Student in Chemistry",
+     level: "Provincial",
+     rank: "Third"   
+    },
+    {
+        title: "Certificate of Merit from the VNU-HCM Youth Union Standing Committee for Outstanding Achievements in the 2024 Green Summer Volunteer Campaign – HCMC Front",
+        level: "National University"
+    },
+    {
+        title: '"Student with 05 Merits" at the University Level',
+        level: "University"
+    },
+]

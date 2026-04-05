@@ -7,7 +7,7 @@ type Message = {
     id: string;
     role: "user" | "assistant";
     content: string;
-    tech: string;
+    tech?: string;
 };
 
 const SUGGESTED_QUESTIONS = [
@@ -141,11 +141,10 @@ export default function ChatWidget() {
                                     className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                                 >
                                     <div
-                                        className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
-                                            msg.role === "user"
+                                        className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${msg.role === "user"
                                                 ? "bg-violet-600 text-white rounded-br-sm"
                                                 : "bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-bl-sm"
-                                        }`}
+                                            }`}
                                     >
                                         {msg.content}
                                     </div>
@@ -219,7 +218,7 @@ export default function ChatWidget() {
                                     </svg>
                                 </button>
                             </div>
-            </div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -260,7 +259,6 @@ export default function ChatWidget() {
                     )}
                 </AnimatePresence>
 
-                {/* Notification dot khi chưa mở */}
                 {!open && (
                     <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-white dark:border-neutral-950" />
                 )}
