@@ -1,5 +1,4 @@
 // data/profile.ts
-// ✏️  Chỉnh thông tin tại đây – các component tự động cập nhật
 
 export const profile = {
   name: "Khang Bui Tran Duy",
@@ -41,7 +40,7 @@ export const research = [
       "Nested Optimizer: Designed a multi-frequency update schedule and Temporal Isolation mechanism to ensure precise hierarchical weight organization.",
       "Performance: Achieved 73.1% F1-score and 75.0% Stability on CIFAR-10, outperforming baselines via Logit Masking and Gradient Accumulation.",
     ],
-    repoUrl: "https://github.com/khangbkk23",
+    repoUrl: "https://github.com/PenguAKAuseless/nested-learning-continual",
   },
 ];
 
@@ -84,7 +83,7 @@ export const projects: Project[] = [
       "Modular PyTorch framework ensuring stable convergence and reproducibility.",
     ],
     tags: ["PyTorch", "DDPG", "YOLOv11", "Faster R-CNN"],
-    repoUrl: "https://github.com/khangbkk23",
+    repoUrl: "https://github.com/khangbkk23/Self-DrivingCarUsingDDPG",
   },
   {
     id: 2,
@@ -99,8 +98,8 @@ export const projects: Project[] = [
       "Achieved ~88.5–90% accuracy. Deployed Django + DRF + Docker on HuggingFace Spaces.",
     ],
     tags: ["EfficientNet-B2", "PyTorch", "Django", "Docker", "HuggingFace"],
-    repoUrl: "https://github.com/khangbkk23",
-    deployUrl: "#",
+    repoUrl: "https://github.com/khangbkk23/FoodVisionBig",
+    deployUrl: "https://khangbkk23-foodvisionbig.hf.space/",
   },
   {
     id: 3,
@@ -115,7 +114,7 @@ export const projects: Project[] = [
       "Recursive 7-day forecasting; Flask + Leaflet.js web app. Achieved ~0.43 RMSE.",
     ],
     tags: ["BiLSTM", "Attention", "Flask", "Leaflet.js", "Pandas"],
-    repoUrl: "https://github.com/khangbkk23",
+    repoUrl: "https://github.com/khangbkk23/TimeSeries_AQI_Forecast_Vietnam_Province.git",
   },
   {
     id: 4,
@@ -129,12 +128,10 @@ export const projects: Project[] = [
       "JWT-secured Django REST API with automated CI/CD on HuggingFace Spaces.",
     ],
     tags: ["RAG", "LangChain", "LangGraph", "FAISS", "Llama-3.1", "Django"],
-    repoUrl: "https://github.com/khangbkk23",
-    deployUrl: "#",
+    repoUrl: "https://github.com/khangbkk23/Epstein_Retrieval_System",
+    deployUrl: "http://khangbkk23-epstein-rag-portfolio.hf.space/",
   },
 ];
-
-// ── Bento Grid (dùng cho Grid component) ─────────────────────────────────────
 
 export interface GridItemProps {
   id: number;
@@ -178,7 +175,6 @@ export const gridItems: GridItemProps[] = [
   },
 ];
 
-// ── Certificates ──────────────────────────────────────────────────────────────
 
 export const certificates = [
   {
@@ -188,7 +184,7 @@ export const certificates = [
     status: "Completed",
     period: "June 2024 – May 2025",
     desc: "100% of 47-hour Machine Learning fundamentals implementation.",
-    url: "#",
+    url: "https://www.udemy.com/course/machinelearning/?couponCode=KEEPLEARNING",
   },
   {
     title: "TensorFlow for Deep Learning Bootcamp",
@@ -197,7 +193,7 @@ export const certificates = [
     status: "Completed",
     period: "Dec 2024 – June 2025",
     desc: "100% of 62.5-hour comprehensive training in Neural Networks implementation.",
-    url: "#",
+    url: "https://www.udemy.com/course/tensorflow-developer-certificate-machine-learning-zero-to-mastery/",
   },
   {
     title: "The Complete Python Bootcamp: From Zero to Hero",
@@ -205,7 +201,7 @@ export const certificates = [
     status: "Completed",
     period: "Dec 2024 – Mar 2025",
     desc: "Advanced core Python programming concepts through coding exercises and projects.",
-    url: "#",
+    url: "https://www.udemy.com/course/python-cho-ai-tu-so-0-thanh-nguoi-hung/?couponCode=KEEPLEARNING",
   },
   {
     title: "LLM Engineering: Master AI, Large Language Models & Agents",
@@ -214,7 +210,7 @@ export const certificates = [
     status: "In Progress (50%)",
     period: "Aug 2025 – Present",
     desc: "Build & deploy LLM applications — GenAI, RAG, QLoRA, AI agents.",
-    url: "#",
+    url: "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/?couponCode=KEEPLEARNING",
   },
   {
     title: "AI Engineer Agentic Track: The Complete Agent & MCP Course",
@@ -223,11 +219,10 @@ export const certificates = [
     status: "In Progress (30%)",
     period: "Nov 2025 – Present",
     desc: "Agentic AI systems, RAG pipelines, QLoRA fine-tuning, deploying GenAI applications.",
-    url: "#",
+    url: "https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/",
   },
 ];
 
-// ── Activities & Languages ────────────────────────────────────────────────────
 
 export const activities = [
   "Member of the Executive Committee, Ho Chi Minh Communist Youth Union – Faculty of CSE",
