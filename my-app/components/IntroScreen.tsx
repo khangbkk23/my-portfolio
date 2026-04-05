@@ -81,24 +81,14 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     {profile.title}
                 </motion.p>
 
-                {/* 🔥 Identity line (NEW) */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.75 }}
-                    className="text-lg md:text-xl text-neutral-300 font-medium"
-                >
-                    AI Engineer focused on Computer Vision & Intelligent Systems
-                </motion.p>
-
                 {/* Description */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
-                    className="text-base md:text-lg text-neutral-400 max-w-xl"
+                    className="text-base md:text-lg text-neutral-400 max-w-3xl"
                 >
-                    Building intelligent systems that learn, adapt, and scale.
+                    If you want to be the best, you have to do the things that other people aren’t willing to do.
                 </motion.p>
 
                 {/* 🔥 Info tags (redesign) */}
@@ -111,8 +101,8 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     {[
                         { label: "GPA 3.71", highlight: true },
                         { label: "TOEIC L&R 855" },
-                        { label: "Computer Vision (Anomaly Detection)" },
-                        { label: "NLP (LLM / RAG)" },
+                        { label: "Computer Vision" },
+                        { label: "NLP" },
                         { label: "Agentic AI Systems" },
                     ].map((item, i) => (
                         <span
