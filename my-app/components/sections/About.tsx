@@ -25,17 +25,18 @@ export default function About() {
                 About Me
             </h2>
 
-            <p className="text-neutral-500 dark:text-neutral-500 mb-14 max-w-xl">
+            <p className="text-neutral-500 dark:text-neutral-500 mb-6 max-w-xl">
                 {profile.summary}
             </p>
+
             <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-xs text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-10"
+                className="text-xs text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-6"
             >
-                <span>📍</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
                 {profile.city} · From {profile.countryside}
             </motion.p>
             <motion.div
@@ -87,13 +88,23 @@ export default function About() {
                     <div className="flex flex-col gap-3">
                         {languages.map((l, i) => (
                             <GlowCard key={i}>
-                                <div>
-                                    <p className="font-semibold text-sm text-black dark:text-white mb-1">
-                                        {l.lang}
-                                    </p>
-                                    <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                                <div className="transition-all duration-300 group-hover:translate-y-[-2px]">
+
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 shrink-0" />
+                                        <p className="font-semibold text-sm text-black dark:text-white
+          transition-colors duration-300
+          group-hover:text-violet-600 dark:group-hover:text-violet-400">
+                                            {l.lang}
+                                        </p>
+                                    </div>
+
+                                    <p className="text-xs text-neutral-500 dark:text-neutral-400 pl-3.5
+        transition-colors duration-300
+        group-hover:text-neutral-700 dark:group-hover:text-neutral-300">
                                         {l.level}
                                     </p>
+
                                 </div>
                             </GlowCard>
                         ))}

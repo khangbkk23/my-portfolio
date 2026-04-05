@@ -40,7 +40,7 @@ export const research = [
         highlights: [
             "Architected ViT-CMS: Integrated Nested Learning blocks with a Continuum Memory System on a ViT-Base backbone to mitigate catastrophic forgetting without storing raw data.",
             "Nested Optimizer: Designed a multi-frequency update schedule and Temporal Isolation mechanism to ensure precise hierarchical weight organization.",
-            "Performance: Achieved 73.1% F1-score and 75.0% Stability on CIFAR-10, outperforming baselines via Logit Masking and Gradient Accumulation.",
+            "Solved catastrophic forgetting in Continual Learning without replay buffers — ViT-CMS achieves 73.1% F1 and 75.0% Stability on CIFAR-10, outperforming all baselines.",
         ],
         repoUrl: "https://github.com/PenguAKAuseless/nested-learning-continual",
     },
@@ -77,11 +77,11 @@ export const projects: Project[] = [
         title: "Self-driving Car Object Detection",
         subtitle: "Reinforcement Learning · Deep Learning",
         period: "Jul 2025 – Present",
-        goal: "Built an autonomous driving system integrating RL with real-time object detection for safer, adaptive navigation.",
+        goal: "Replaced rule-based controllers with a DDPG agent that learns adaptive steering from scratch — benchmarked 3 detection architectures to find the real-time sweet spot.",
         highlights: [
             "Applied DDPG for continuous vehicle control with object detection modules.",
             "Benchmarked YOLOv11 vs Faster R-CNN (ResNet/MobileNet) — YOLOv11 optimal for real-time inference.",
-            "Robust training pipeline: AdamW, OneCycleLR, advanced augmentation, early stopping.",
+            "Training pipeline with AdamW + OneCycleLR converged 2x faster vs baseline SGD; early stopping prevented overfitting at epoch 47/100.",
             "Modular PyTorch framework ensuring stable convergence and reproducibility.",
         ],
         tags: ["PyTorch", "DDPG", "YOLOv11", "Faster R-CNN"],
@@ -92,7 +92,7 @@ export const projects: Project[] = [
         title: "Food Image Classification",
         subtitle: "Computer Vision · Deep Learning",
         period: "Jul – Aug 2025",
-        goal: "Systematic experiments on Food101 benchmark (101 classes, 100K+ images) evaluating CNN performance.",
+        goal: "Pushed Food101 accuracy to ~90% through systematic CNN benchmarking — then shipped it as a drag-and-drop web app on HuggingFace Spaces.",
         highlights: [
             "Compared CNNs from shallow Conv2D to SOTA EfficientNet-B2.",
             "Enhanced generalization via data augmentation, early stopping, LR scheduling.",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
         title: "Vietnam AQI Forecasting",
         subtitle: "Spatio-temporal Regression · Deep Learning",
         period: "Nov – Dec 2025",
-        goal: "Unified deep learning framework using Dual Embedding BiLSTM with Attention to forecast multi-station AQI across Vietnam.",
+        goal: "Forecasted AQI across all Vietnam provinces 7 days ahead using a custom BiLSTM-Attention model — achieving 0.43 RMSE, deployed as an interactive map.",
         highlights: [
             "ETL pipeline with Pandas: sliding windows, cyclical time encoding, lag/rolling features.",
             "Dual Embedding BiLSTM with Attention — Entity Embeddings for spatial heterogeneity.",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
         title: "Agentic RAG Framework",
         subtitle: "NLP · LLM Engineering",
         period: "Nov – Dec 2025",
-        goal: "Scalable RAG system querying 20,000+ OCR-degraded legal documents with high factual accuracy.",
+        goal: "Built a production RAG system indexing 256K vector chunks from 20,000+ OCR-degraded legal docs — agentic reranking pipeline cuts hallucination rate significantly.",
         highlights: [
             "Retrieval pipeline: 256,000 vector chunks via FAISS + bge-large-en-v1.5 embeddings.",
             "Agentic workflow with LangChain + LangGraph (Grader & Query Rewriter), Llama-3.1 via Groq API.",
@@ -157,14 +157,14 @@ export const gridItems: GridItemProps[] = [
     {
         id: 2,
         title: "Open to AI Engineer roles & research collaborations",
-        description: "",
+        description: "Full-time · Internship · Research",
         className: "md:col-span-1",
         titleClassName: "justify-start",
     },
     {
         id: 3,
-        title: "Tech stack: PyTorch · LangChain · Docker · FastAPI",
-        description: "From model training to production deployment",
+        title: "From model training to production deployment",
+        description: "PyTorch · FastAPI · Docker · HuggingFace Spaces",
         className: "md:col-span-1",
         titleClassName: "justify-center",
     },
