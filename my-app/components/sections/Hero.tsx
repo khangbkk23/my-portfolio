@@ -72,18 +72,11 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-            {...fadeUp(0.25)}
-            className="text-sm text-neutral-400 max-w-xl"
-            >
-            I build end-to-end ML systems from data to deployment, with a strong focus on research-driven experimentation.
-            </motion.p>
-
-            <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-xs text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-6"
+                className="text-sm text-neutral-400 dark:text-neutral-500 flex items-center gap-2 mb-6"
             >
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
                 {profile.city} · From {profile.countryside}

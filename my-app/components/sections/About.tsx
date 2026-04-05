@@ -35,7 +35,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="mb-12 max-w-xl"
             >
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
                     I focus on building end-to-end AI systems, from data processing and model training
                     to deployment and real-world usage. I’m particularly interested in research-driven
                     approaches, where ideas from papers are translated into practical implementations.
