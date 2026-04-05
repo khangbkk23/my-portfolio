@@ -72,10 +72,10 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="flex gap-6 text-sm text-neutral-400"
+          className="flex gap-6 text-lg text-neutral-500"
         >
           <span className="text-emerald-500 font-semibold">GPA 3.71</span>
-          <span>TOEIC 855</span>
+          <span>TOEIC L&R 855</span>
           <span>Computer Vision</span>
           <span>Natural Language Processing</span>
           <span>Agentic AI</span>
