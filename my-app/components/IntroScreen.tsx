@@ -116,7 +116,6 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
 
                 <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
                     
-                    {/* Nút 1: Explore */}
                     <motion.button
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -131,7 +130,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             style={{ animationDuration: '3s' }}
                         />
 
-                        <span className="relative flex items-center justify-center px-12 py-5 rounded-full text-base md:text-lg font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
+                        <span className="relative flex items-center justify-center px-12 py-3 rounded-full text-base md:text-lg font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Explore My Work →
                         </span>
                     </motion.button>
@@ -151,7 +150,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             style={{ animationDuration: '3s' }}
                         />
 
-                        <span className="relative flex items-center justify-center px-12 py-5 rounded-full text-base md:text-lg font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
+                        <span className="relative flex items-center justify-center px-12 py-3 rounded-full text-base md:text-lg font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Download my CV!
                         </span>
                     </motion.a>
