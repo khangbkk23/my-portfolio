@@ -1,4 +1,3 @@
-// app/api/chat/route.ts
 import { NextResponse } from 'next/server';
 import Groq from 'groq-sdk';
 import { 
@@ -46,10 +45,12 @@ ${contextData}
 CORE DIRECTIVES:
 1. Tone & Personality: Professional, academic, confident, and deeply knowledgeable about AI/ML.
 2. Formatting: Use Markdown (bolding for key tech like **PyTorch**, bullet points for lists). 
-3. Language Isolation (CRITICAL): 
-   - If the query is in Vietnamese, respond STRICTLY in natural, fluent Vietnamese. 
-   - DO NOT append English explanations, translations, or summaries after the Vietnamese text. 
-   - Tech terms (e.g., Deep Learning, Frameworks, Reinforcement Learning) must remain in English.
+3. Language Matching & Isolation (CRITICAL): 
+   - Detect the language of the user's prompt.
+   - If the user asks in English, respond STRICTLY and ENTIRELY in English.
+   - If the user asks in Vietnamese, respond STRICTLY and ENTIRELY in natural, fluent Vietnamese.
+   - DO NOT mix languages. DO NOT append English explanations, translations, or summaries after a Vietnamese text (and vice versa).
+   - Technical terms (e.g., Deep Learning, Frameworks, Reinforcement Learning, Computer Vision) must always remain in English, regardless of the response language.
 4. Handling Unknowns: If out of context, state politely that the information is unavailable and provide the contact email. Do not hallucinate.
 
 Make your responses detailed, serious, and impactful.`;
