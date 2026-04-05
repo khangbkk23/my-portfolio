@@ -129,7 +129,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         </div>
                     </motion.button>
                     <motion.a
-                        href="/cv.pdf"
+                        href="/resume_khangbuitranduy_v3.2_updated.pdf"
                         download
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
