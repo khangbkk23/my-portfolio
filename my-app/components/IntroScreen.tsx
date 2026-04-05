@@ -105,6 +105,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                 </motion.div>
 
                 <div className="flex flex-wrap items-center justify-center gap-4">
+                    {/* Nút 1: Explore My Work */}
                     <motion.button
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -112,22 +113,15 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         whileTap={{ scale: 0.97 }}
                         transition={{ delay: 1.2, type: "spring", stiffness: 300 }}
                         onClick={onEnter}
-                        className="relative mt-6 rounded-full p-[1px] group"
+                        className="relative mt-6 inline-flex overflow-hidden rounded-full p-[2px] group"
                     >
-                        {/* Gradient border animated */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 animate-[spin_3s_linear_infinite]" />
+                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#34d399_0%,#22d3ee_50%,#34d399_100%)]" />
 
-                        {/* Inner button */}
-                        <div className="relative px-10 py-4 rounded-full text-sm font-semibold
-    bg-white dark:bg-neutral-900
-    text-black dark:text-white
-    backdrop-blur-xl
-    group-hover:bg-white/90 dark:group-hover:bg-neutral-900/90
-    transition"
-                        >
+                        <span className="relative flex items-center justify-center w-full px-10 py-4 rounded-full text-sm font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
                             Explore My Work →
-                        </div>
+                        </span>
                     </motion.button>
+
                     <motion.a
                         href="/resume_khangbuitranduy_v3.2_updated.pdf"
                         download
@@ -136,13 +130,13 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{ delay: 1.3 }}
-                        className="relative mt-6 px-8 py-4 rounded-full text-sm font-medium
-  border border-neutral-300 dark:border-neutral-700
-  text-neutral-700 dark:text-neutral-300
-  hover:border-emerald-400 hover:text-emerald-500
-  transition backdrop-blur-sm"
+                        className="relative mt-6 inline-flex overflow-hidden rounded-full p-[2px] group"
                     >
-                        Download CV ↓
+                        <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#f472b6_50%,#c084fc_100%)]" />
+
+                        <span className="relative flex items-center justify-center w-full px-8 py-4 rounded-full text-sm font-medium bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
+                            Download CV ↓
+                        </span>
                     </motion.a>
                 </div>
 
