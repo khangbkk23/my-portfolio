@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { profile, education, research, activities, languages } from "@/data/profile";
-
+import GlowCard from "@/components/ui/GlowCard";
 function SectionLabel({ children }: { children: string }) {
   return (
     <p className="text-[11px] font-semibold tracking-widest uppercase text-neutral-400 dark:text-neutral-600 mb-4">
@@ -29,19 +29,18 @@ export default function About() {
         <div>
           <SectionLabel>Education</SectionLabel>
           {education.map((edu, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5"
-            >
-              <p className="font-semibold text-sm text-black dark:text-white mb-0.5">{edu.school}</p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-0.5">{edu.degree}</p>
-              <p className="text-xs text-neutral-400 dark:text-neutral-500 italic mb-3">{edu.major}</p>
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-medium text-violet-600 dark:text-violet-400">GPA: {edu.gpa}</span>
-                <span className="text-neutral-400">{edu.period}</span>
-              </div>
-            </div>
-          ))}
+  <GlowCard key={i}>
+    <div>
+      <p className="font-semibold text-sm text-black dark:text-white mb-0.5">{edu.school}</p>
+      <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-0.5">{edu.degree}</p>
+      <p className="text-xs text-neutral-400 dark:text-neutral-500 italic mb-3">{edu.major}</p>
+      <div className="flex items-center justify-between text-xs">
+        <span className="font-medium text-violet-600 dark:text-violet-400">GPA: {edu.gpa}</span>
+        <span className="text-neutral-400">{edu.period}</span>
+      </div>
+    </div>
+  </GlowCard>
+))}
         </div>
 
         {/* Languages */}
@@ -64,6 +63,7 @@ export default function About() {
         <div className="lg:col-span-2">
           <SectionLabel>Research Experience</SectionLabel>
           {research.map((r, i) => (
+            <GlowCard key={i}>
             <div
               key={i}
               className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6"
@@ -91,6 +91,7 @@ export default function About() {
                 ))}
               </ul>
             </div>
+            </GlowCard>
           ))}
         </div>
 
@@ -99,14 +100,15 @@ export default function About() {
           <SectionLabel>Leadership & Activities</SectionLabel>
           <div className="grid sm:grid-cols-2 gap-3">
             {activities.map((a, i) => (
-              <div
-                key={i}
-                className="flex gap-3 items-start rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 py-3"
-              >
-                <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">{a}</p>
-              </div>
-            ))}
+  <motion.div
+    key={i}
+    whileHover={{ y: -4, scale: 1.02 }}
+    className="flex gap-3 items-start rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 py-3 transition-all"
+  >
+    <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-500" />
+    <p className="text-sm text-neutral-600 dark:text-neutral-400">{a}</p>
+  </motion.div>
+))}
           </div>
         </div>
       </div>

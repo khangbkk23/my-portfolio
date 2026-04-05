@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { certificates } from "@/data/profile";
-
+import GlowCard from "@/components/ui/GlowCard";
 export default function Certificates() {
   return (
     <motion.div
