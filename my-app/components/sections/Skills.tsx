@@ -29,13 +29,13 @@ export default function Skills() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {groups.map((group, i) => (
-                    <GlowCard key={group.label}>
+                    <GlowCard key={group.label} className="h-full">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ scale: 1.02 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05 }}
+                            className="flex flex-col h-full"
                         >
                             <p className={`text-[11px] font-semibold tracking-widest uppercase mb-3 ${group.color}`}>
                                 {group.label}
@@ -48,9 +48,9 @@ export default function Skills() {
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         transition={{ type: "spring", stiffness: 300 }}
                                         className="px-2.5 py-1 rounded-full text-xs font-medium 
-              bg-neutral-100 dark:bg-neutral-800 
-              text-neutral-600 dark:text-neutral-400 
-              border border-neutral-200 dark:border-neutral-700"
+            bg-neutral-100 dark:bg-neutral-800 
+            text-neutral-600 dark:text-neutral-400 
+            border border-neutral-200 dark:border-neutral-700"
                                     >
                                         {item}
                                     </motion.span>
