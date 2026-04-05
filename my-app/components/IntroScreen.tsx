@@ -53,7 +53,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     </span>
                 </motion.div>
 
-                <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold tracking-tight">
+                <motion.h1 className="text-6xl md:text-7xl lg:text-5xl font-bold tracking-tight">
                     {profile.name.split("").map((char, i) => (
                         <motion.span
                             key={i}
@@ -66,7 +66,6 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     ))}
                 </motion.h1>
 
-                {/* Title (Tăng lên text-xl md:text-2xl) */}
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -81,9 +80,9 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
-                    className="text-base md:text-lg lg:text-xl text-neutral-400 max-w-4xl leading-relaxed"
+                    className="text-base md:text-lg lg:text-xl text-neutral-400 max-w-4xl leading-relaxed italic"
                 >
-                    If you want to be the best, you have to do the things that other people aren’t willing to do.
+                    "If you want to be the best, you have to do the things that other people aren’t willing to do."
                 </motion.p>
 
                 <motion.div
