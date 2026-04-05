@@ -4,7 +4,7 @@
 export const profile = {
   name: "Khang Bui Tran Duy",
   title: "AI Engineer | Data Science",
-  tagline: "Computer Science · Artificial Intelligence & Machine Learning",
+  tagline: "Computer Science · Artificial Intelligence and Machine Learning",
   summary:
     "Third-year Computer Science student at HCMUT with a strong foundation in Machine Learning, Deep Learning, Computer Vision, and NLP — currently expanding into Reinforcement Learning.",
   shortGoal:

@@ -73,11 +73,13 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
         >
           <span>GPA 3.71 / 4.00</span>
           <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
-          <span>TOEIC 855</span>
+          <span>TOEIC L&R 855</span>
           <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
-          <span>4 Projects</span>
+          <span>Computer Vision</span>
           <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
-          <span>5 Certificates</span>
+          <span>Natural Language Processing</span>
+          <span className="w-px h-4 bg-neutral-300 dark:bg-neutral-700" />
+          <span>Generative AI</span>
         </motion.div>
 
         <motion.div
@@ -105,7 +107,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3 }}
-        className="absolute bottom-10 text-xs text-neutral-400 dark:text-neutral-600"
+        className="absolute bottom-10 text-base text-neutral-400 dark:text-neutral-600"
       >
         Press Enter or click to begin
       </motion.p>
