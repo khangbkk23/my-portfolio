@@ -134,8 +134,8 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     >
                         <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#c084fc_0%,#f472b6_50%,#c084fc_100%)]" />
 
-                        <span className="relative flex items-center justify-center w-full px-8 py-4 rounded-full text-sm font-medium bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
-                            Download CV ↓
+                        <span className="relative flex items-center justify-center w-full px-10 py-4 rounded-full text-sm font-medium bg-white dark:bg-neutral-900 text-black dark:text-white transition-colors group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800">
+                            Download my CV!
                         </span>
                     </motion.a>
                 </div>
