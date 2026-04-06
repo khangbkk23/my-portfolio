@@ -11,13 +11,13 @@ export default function Projects() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {projects.map((p, i) => (
-        <GlowCard key={p.id}>
+        <GlowCard key={p.id} className="h-full">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="cursor-pointer"
+            className="cursor-pointer min-h-[280px] flex flex-col"
             onClick={() => setExpanded(expanded === p.id ? null : p.id)}
           >
             {/* Header */}
@@ -51,7 +51,7 @@ export default function Projects() {
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-2">
+            <div className="flex flex-wrap gap-1.5 mb-3 mt-auto">
               {p.tags.map((tag) => (
                 <motion.span
                   key={tag}

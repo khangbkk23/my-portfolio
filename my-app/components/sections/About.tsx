@@ -25,7 +25,7 @@ export default function About() {
                 About Me
             </h2>
 
-            <p className="text-neutral-500 dark:text-neutral-500 mb-6 max-w-xl">
+            <p className="text-neutral-500 dark:text-neutral-600 mb-6 max-w-8xl">
                 {profile.summary}
             </p>
 
@@ -33,11 +33,11 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-12 max-w-xl"
+                className="mb-12 max-w-8xl"
             >
                 <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
                     I focus on building end-to-end AI systems, from data processing and model training
-                    to deployment and real-world usage. I’m particularly interested in research-driven
+                    to deployment and real-world usage. I&apos;m particularly interested in research-driven
                     approaches, where ideas from papers are translated into practical implementations.
                 </p>
             </motion.div>
@@ -49,8 +49,8 @@ export default function About() {
                     <SectionLabel>Education</SectionLabel>
                     <div className="flex flex-col gap-3">
                         {education.map((edu, i) => (
-                            <GlowCard key={i}>
-                                <div>
+                            <GlowCard key={i} className="h-full">
+                                <div className="min-h-[120px] flex flex-col justify-between">
                                     <p className="font-semibold text-sm text-black dark:text-white mb-0.5">
                                         {edu.school}
                                     </p>
@@ -77,8 +77,8 @@ export default function About() {
                     <SectionLabel>Languages</SectionLabel>
                     <div className="flex flex-col gap-3">
                         {languages.map((l, i) => (
-                            <GlowCard key={i}>
-                                <div className="transition-all duration-300 group-hover:translate-y-[-2px]">
+                            <GlowCard key={i} className="h-full">
+                                <div className="transition-all duration-300 group-hover:translate-y-[-2px] min-h-[120px] flex flex-col justify-between">
 
                                     <div className="flex items-center gap-2 mb-1">
                                         <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 shrink-0" />

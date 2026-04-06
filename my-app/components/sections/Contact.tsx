@@ -79,7 +79,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
                 {links.map((link, i) => (
-                    <GlowCard key={link.label}>
+                    <GlowCard key={link.label} className="h-full">
                         <motion.a
                             href={link.href}
                             target={link.href.startsWith("http") ? "_blank" : undefined}
@@ -89,12 +89,12 @@ export default function Contact() {
                             whileHover={{ scale: 1.03 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.08 }}
-                            className="flex items-center gap-4"
+                            className="flex items-center gap-4 min-h-[80px]"
                         >
                             <span className={`${link.color} group-hover:scale-110 transition-transform`}>
                                 {link.icon}
                             </span>
-                            <div>
+                            <div className="flex-1">
                                 <p className="text-[11px] font-semibold tracking-widest uppercase text-neutral-400 mb-0.5">
                                     {link.label}
                                 </p>

@@ -27,7 +27,7 @@ export default function Certificates() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="group flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 py-4 hover:border-violet-300 dark:hover:border-violet-800 transition-colors duration-200"
+              className="group flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 py-4 min-h-[100px] hover:border-violet-300 dark:hover:border-violet-800 transition-colors duration-200"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
