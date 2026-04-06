@@ -71,12 +71,13 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="w-full py-20"
         >
-            <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 tracking-tight">Contact</h2>
-            <p className="text-neutral-500 dark:text-neutral-500 mb-12">
-                Open to AI Engineer roles, collaborations, and research opportunities.
-            </p>
+            <div className="max-w-7xl mx-auto px-5 sm:px-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 tracking-tight">Contact</h2>
+                <p className="text-neutral-500 dark:text-neutral-500 mb-12">
+                    Open to AI Engineer roles, collaborations, and research opportunities.
+                </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
                 {links.map((link, i) => (
                     <GlowCard key={link.label}>
                         <motion.a
@@ -104,13 +105,14 @@ export default function Contact() {
                         </motion.a>
                     </GlowCard>
                 ))}
-            </div>
+                </div>
 
-            <footer className="border-t border-neutral-100 dark:border-neutral-800 pt-8 text-center">
-                <p className="text-xs text-neutral-400 dark:text-neutral-600">
-                    © {new Date().getFullYear()} {profile.name} · Built with Next.js & Tailwind CSS
-                </p>
-            </footer>
+                <footer className="border-t border-neutral-100 dark:border-neutral-800 pt-8 text-center">
+                    <p className="text-xs text-neutral-400 dark:text-neutral-600">
+                        © {new Date().getFullYear()} {profile.name} · Built with Next.js & Tailwind CSS
+                    </p>
+                </footer>
+            </div>
         </motion.div>
     );
 }

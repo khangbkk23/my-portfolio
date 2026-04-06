@@ -29,7 +29,7 @@ export default function Rewards() {
                     transition={{ duration: 0.5 }}
                     className="mb-12"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold text-black dark:text-white mb-4 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 tracking-tight">
                         Honors & <span className="text-violet-500">Rewards</span>
                     </h2>
                     <p className="text-neutral-500 dark:text-neutral-400 text-base md:text-lg max-w-2xl">
