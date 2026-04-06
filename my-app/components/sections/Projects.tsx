@@ -9,7 +9,14 @@ export default function Projects() {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 w-full relative">
+    <motion.section
+      id="projects"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6 }}
+      className="py-20 w-full relative"
+    >
     <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +35,7 @@ export default function Projects() {
       {projects.map((p, i) => (
         <GlowCard key={p.id} className="h-full">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
@@ -144,6 +151,6 @@ export default function Projects() {
         </GlowCard>
       ))}
     </div>
-    </section>
+    </motion.section>
   );
 }

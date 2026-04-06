@@ -17,7 +17,14 @@ const TrophyIcon = ({ className }: { className?: string }) => (
 
 export default function Rewards() {
     return (
-        <section id="rewards" className="py-24 md:py-28 w-full relative">
+        <motion.section
+            id="rewards"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="py-24 md:py-28 w-full relative"
+        >
             <div className="max-w-7xl mx-auto px-5 sm:px-10">
                 
                 {/* Header */}
@@ -41,8 +48,8 @@ export default function Rewards() {
                     {rewards.map((reward, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.5, delay: index * 0.07 }}
                             className="w-full"
@@ -78,6 +85,6 @@ export default function Rewards() {
                 </div>
 
             </div>
-        </section>
+        </motion.section>
     );
 }
