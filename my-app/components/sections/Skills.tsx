@@ -25,7 +25,7 @@ export default function Skills() {
             className="w-full py-20"
         >
             <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-3 tracking-tight">Skills</h2>
-            <p className="text-neutral-500 dark:text-neutral-500 mb-12">Technical expertise across the full AI/ML stack.</p>
+            <p className="text-neutral-500 dark:text-neutral-500 mb-12 text-lg">Specialized in AI engineering and model development, leveraging a diverse technical stack to build high-performance AI systems.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {groups.map((group, i) => (

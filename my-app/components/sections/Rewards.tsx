@@ -1,4 +1,3 @@
-// components/sections/Rewards.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -18,7 +17,7 @@ const TrophyIcon = ({ className }: { className?: string }) => (
 
 export default function Rewards() {
     return (
-        <section id="rewards" className="py-20 w-full relative">
+        <section id="rewards" className="py-24 md:py-28 w-full relative">
             <div className="max-w-7xl mx-auto px-5 sm:px-10">
                 
                 {/* Header */}
@@ -27,7 +26,7 @@ export default function Rewards() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5 }}
-                    className="mb-12"
+                    className="mb-14 md:mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 tracking-tight">
                         Honors & <span className="text-violet-500">Rewards</span>
@@ -37,36 +36,41 @@ export default function Rewards() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* XẾP CHỒNG 1 CỘT BẰNG FLEX-COL */}
+                <div className="flex flex-col gap-5">
                     {rewards.map((reward, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: index * 0.07 }}
+                            className="w-full"
                         >
-                            <GlowCard className="h-full flex items-start gap-4">
-                                {/* Icon Container */}
-                                <div className="w-12 h-12 shrink-0 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center border border-violet-200 dark:border-violet-800/50">
-                                    <TrophyIcon className="w-5 h-5 text-violet-600 dark:text-violet-400" />
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex flex-col gap-1">
-                                    <h3 className="text-lg font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                                        {reward.title}
-                                    </h3>
-                                    <div className="flex flex-wrap items-center gap-2 mt-1">
-                                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 uppercase tracking-widest">
-                                            {reward.level} Level
-                                        </span>
-                                        {reward.rank && (
-                                            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 uppercase tracking-widest">
-                                                {reward.rank} Prize
-                                            </span>
-                                        )}
+                            <GlowCard className="w-full">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full">
+                                    
+                                    <div className="w-14 h-14 shrink-0 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center border border-violet-200 dark:border-violet-800/50">
+                                        <TrophyIcon className="w-6 h-6 text-violet-600 dark:text-violet-400" />
                                     </div>
+
+                                    <div className="flex-1 flex flex-col gap-1.5 w-full">
+                                        <h3 className="text-base font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                            {reward.title}
+                                        </h3>
+                                        
+                                        <div className="flex flex-wrap items-center gap-2 mt-0.5">
+                                            <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 uppercase tracking-widest">
+                                                {reward.level} Level
+                                            </span>
+                                            {reward.rank && (
+                                                <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 uppercase tracking-widest">
+                                                    {reward.rank} Prize
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+
                                 </div>
                             </GlowCard>
                         </motion.div>

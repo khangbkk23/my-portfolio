@@ -16,6 +16,7 @@ import {
     FaBrain, FaCertificate, FaEnvelope,
     FaMedal,
 } from "react-icons/fa";
+import Footer from "@/components/sections/Footer";
 
 const navItems = [
     { name: "Home", link: "#home", icon: <FaHome /> },
@@ -81,6 +82,9 @@ export default function Home() {
 
                             <section id="contact">
                                 <Contact />
+                            </section>
+                            <section id="footer">
+                                <Footer />
                             </section>
                         </div>
                     </motion.div>

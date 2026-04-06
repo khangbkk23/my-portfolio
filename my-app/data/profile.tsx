@@ -17,6 +17,7 @@ export const profile = {
         email: "kelvin.duykhang.dev@gmail.com",
         github: "khangbkk23",
         linkedin: "khangbkk23",
+        facebook: "https://www.facebook.com/duykhang812005/"
     },
 };
 
@@ -232,10 +233,17 @@ export const activities = [
 ];
 
 export const languages = [
-    { lang: "Vietnamese", level: "Native" },
+    { 
+        lang: "Vietnamese", 
+        level: "Native",
+        cert: "",
+        description: "" 
+    },
     {
         lang: "English",
-        level: "TOEIC L&R: 855 - technical discussions, documentation, cross-cultural collaboration",
+        level: "Professional Working",
+        cert: "TOEIC L&R: 855/990",
+        description: "Capable of conducting technical discussions, writing clear documentation, and collaborating effectively in cross-cultural environments." // 
     },
 ];
 export const rewards = [

@@ -9,6 +9,21 @@ export default function Projects() {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
+    <section id="projects" className="py-20 w-full relative">
+    <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-12"
+                >
+                    <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 tracking-tight">
+                        <span className="text-violet-500">Key</span> Projects
+                    </h2>
+                    <p className="text-neutral-500 dark:text-neutral-400 text-lg max-w-2xl">
+                        A showcase of my most impactful projects, demonstrating my skills and passion for AI Engineering and Data Science.
+                    </p>
+                </motion.div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {projects.map((p, i) => (
         <GlowCard key={p.id} className="h-full">
@@ -23,7 +38,7 @@ export default function Projects() {
             {/* Header */}
             <div className="mb-3 flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] font-semibold tracking-widest uppercase text-violet-500 mb-1">
+                <p className="text-sm font-semibold tracking-widest uppercase text-violet-500 mb-1">
                   {p.subtitle}
                 </p>
 
@@ -33,7 +48,7 @@ export default function Projects() {
               </div>
 
               <div className="flex items-center gap-2 shrink-0">
-                <span className="text-xs text-neutral-400">{p.period}</span>
+                <span className="text-sm text-neutral-400">{p.period}</span>
 
                 <motion.span
                   animate={{ rotate: expanded === p.id ? 180 : 0 }}
@@ -129,5 +144,6 @@ export default function Projects() {
         </GlowCard>
       ))}
     </div>
+    </section>
   );
 }
