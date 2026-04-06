@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { Spotlight } from "./ui/Spotlight";
 
 interface IntroScreenProps {
     onEnter: () => void;
@@ -19,12 +20,15 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 animate-pulse pointer-events-none" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
             <div className="absolute w-[600px] h-[600px] bg-purple-500/10 blur-[140px] rounded-full pointer-events-none" />
+            <Spotlight className="top-0 left-1/2 -translate-x-1/2" />
 
             {[
                 "top-20 left-10 bg-violet-400",
                 "top-40 right-20 bg-indigo-400",
                 "bottom-32 left-20 bg-blue-400",
-                "bottom-20 right-10 bg-purple-300",
+                "bottom-20 right-10 bg-cyan-300",
+                "top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 bg-pink-400",
+                "top-1/3 right-1/3 bg-sky-400",
             ].map((pos, i) => (
                 <motion.div
                     key={i}

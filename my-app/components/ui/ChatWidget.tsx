@@ -15,11 +15,15 @@ const SUGGESTED_QUESTIONS = [
     "What are his technical skills?",
     "Khang đang sống và làm việc ở đâu?",
     "Khang có thành tích gì nổi bật không?",
+    "What is Khang's background and experience?",
     "How can I contact Khang?",
 ];
 
 export default function ChatWidget() {
     const [open, setOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const [showHint, setShowHint] = useState(false);
+
     const [messages, setMessages] = useState<Message[]>([
         {
             id: "welcome",
@@ -32,6 +36,14 @@ export default function ChatWidget() {
     const [showSuggestions, setShowSuggestions] = useState(true);
     const bottomRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+
+    // Tự động hiện gợi ý sau 3 giây
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowHint(true);
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         if (open) {
@@ -103,8 +115,8 @@ export default function ChatWidget() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.92, y: 16 }}
                         transition={{ type: "spring", stiffness: 300, damping: 28 }}
-                        className="fixed bottom-24 right-5 z-50 w-[300px] max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-2xl overflow-hidden"
-                        style={{ height: "400px" }}
+                        className="fixed bottom-24 right-5 z-50 w-100 h-200 max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-2xl overflow-hidden"
+                        style={{ height: "600px" }}
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
@@ -181,12 +193,12 @@ export default function ChatWidget() {
                                     transition={{ delay: 0.3 }}
                                     className="flex flex-col gap-1.5 mt-1"
                                 >
-                                    <p className="text-[10px] text-neutral-400 uppercase tracking-wider font-medium">Suggested</p>
+                                    <p className="text-sm text-neutral-400 uppercase tracking-wider font-medium">Suggested</p>
                                     {SUGGESTED_QUESTIONS.map((q) => (
                                         <button
                                             key={q}
                                             onClick={() => sendMessage(q)}
-                                            className="text-left text-xs px-3 py-2 rounded-xl border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-150"
+                                            className="text-left text-sm px-3 py-2 rounded-xl border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-150"
                                         >
                                             {q}
                                         </button>
@@ -225,46 +237,69 @@ export default function ChatWidget() {
                 )}
             </AnimatePresence>
 
-            {/* Floating Bubble */}
-            <motion.button
-                onClick={() => setOpen((prev) => !prev)}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-violet-700 to-cyan-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center"
-                title="Chat with Khang's AI"
-            >
-                <AnimatePresence mode="wait">
-                    {open ? (
-                        <motion.svg
-                            key="close"
-                            initial={{ rotate: -90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: 90, opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            className="w-5 h-5"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+            <div className="fixed bottom-5 right-5 z-50 flex items-center">
+                <AnimatePresence>
+                    {/* Kết hợp showHint (hiện tự động) hoặc isHovered (chuột trỏ vào) */}
+                    {(showHint || isHovered) && !open && (
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: [0, -8, 0] }} // Hiệu ứng nhấp nháy sang ngang
+                            exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                            transition={{
+                                opacity: { duration: 0.3 },
+                                x: { repeat: Infinity, duration: 2, ease: "easeInOut" } // Lặp lại vô hạn
+                            }}
+                            className="absolute right-[70px] whitespace-nowrap px-4 py-2.5 bg-neutral-800 dark:bg-white text-white dark:text-black text-sm font-semibold rounded-xl shadow-xl pointer-events-none flex items-center"
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </motion.svg>
-                    ) : (
-                        <motion.svg
-                            key="chat"
-                            initial={{ rotate: 90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: -90, opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            className="w-5 h-5"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </motion.svg>
+                            Ask AI Assistant about Khang
+                            <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-neutral-800 dark:border-l-white" />
+                        </motion.div>
                     )}
                 </AnimatePresence>
-
-                {!open && (
-                    <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
-                )}
-            </motion.button>
+                
+                <motion.button
+                    onClick={() => {
+                        setOpen((prev) => !prev);
+                        setShowHint(false); // Tắt vĩnh viễn hint sau khi click mở chat
+                    }}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-700 to-cyan-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center relative"
+                >
+                    <AnimatePresence mode="wait">
+                        {open ? (
+                            <motion.svg
+                                key="close"
+                                initial={{ rotate: -90, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                exit={{ rotate: 90, opacity: 0 }}
+                                transition={{ duration: 0.15 }}
+                                className="w-5 h-5"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </motion.svg>
+                        ) : (
+                            <motion.svg
+                                key="chat"
+                                initial={{ rotate: 90, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                exit={{ rotate: -90, opacity: 0 }}
+                                transition={{ duration: 0.15 }}
+                                className="w-5 h-5"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </motion.svg>
+                        )}
+                    </AnimatePresence>
+                    {!open && (
+                        <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
+                    )}
+                </motion.button>
+            </div>
         </>
     );
 }
