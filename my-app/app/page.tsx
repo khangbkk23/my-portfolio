@@ -32,19 +32,39 @@ export default function Home() {
     const [showIntro, setShowIntro] = useState(true);
 
     useEffect(() => {
+        const checkHash = () => {
+            if (window.location.hash && window.location.hash !== "#intro") {
+                setShowIntro(false);
+            } else {
+                setShowIntro(true);
+            }
+        };
+
+        checkHash();
+        window.addEventListener("hashchange", checkHash);
+        
+        return () => window.removeEventListener("hashchange", checkHash);
+    }, []);
+
+    useEffect(() => {
         if (!showIntro) return;
         const handler = (e: KeyboardEvent) => {
-            if (e.key === "Enter") setShowIntro(false);
+            if (e.key === "Enter") handleEnter();
         };
         window.addEventListener("keydown", handler);
         return () => window.removeEventListener("keydown", handler);
     }, [showIntro]);
 
+    const handleEnter = () => {
+        window.location.hash = "#home";
+        setShowIntro(false);
+    };
+
     return (
         <main className="relative bg-white dark:bg-neutral-950 flex justify-center items-center flex-col overflow-hidden mx-auto transition-colors duration-300 min-h-screen">
             <AnimatePresence mode="wait">
                 {showIntro ? (
-                    <IntroScreen key="intro" onEnter={() => setShowIntro(false)} />
+                    <IntroScreen key="intro" onEnter={handleEnter} />
                 ) : (
                     <motion.div
                         key="main-content"
@@ -83,9 +103,8 @@ export default function Home() {
                             <section id="contact">
                                 <Contact />
                             </section>
-                            <section id="footer">
-                                <Footer />
-                            </section>
+                            
+                            <Footer />
                         </div>
                     </motion.div>
                 )}

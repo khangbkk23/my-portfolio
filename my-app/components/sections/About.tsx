@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
 import { profile, education, research, activities, languages } from "@/data/profile";
 import GlowCard from "@/components/ui/GlowCard";
 
@@ -168,7 +167,7 @@ export default function About() {
                                                         rel="noopener noreferrer"
                                                         className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 hover:bg-violet-100 dark:hover:bg-violet-900/30 rounded-full transition-all duration-200"
                                                     >
-                                                        <FileText className="w-3 h-3" />
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
                                                         {l.cert}
                                                     </a>
                                                 </div>
