@@ -140,7 +140,6 @@ export default function Hero() {
                     </motion.div>
                 </div>
 
-                {/* Lower Full-Width Content Stack */}
                 <div className="max-w-4xl mx-auto flex flex-col items-center gap-y-10">
                     {/* Goals */}
                     <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 w-full text-left">

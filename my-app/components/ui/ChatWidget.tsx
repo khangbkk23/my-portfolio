@@ -230,7 +230,7 @@ export default function ChatWidget() {
                 onClick={() => setOpen((prev) => !prev)}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
-                className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center"
+                className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-violet-700 to-cyan-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center"
                 title="Chat with Khang's AI"
             >
                 <AnimatePresence mode="wait">
@@ -262,7 +262,7 @@ export default function ChatWidget() {
                 </AnimatePresence>
 
                 {!open && (
-                    <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-white dark:border-neutral-950" />
+                    <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
                 )}
             </motion.button>
         </>

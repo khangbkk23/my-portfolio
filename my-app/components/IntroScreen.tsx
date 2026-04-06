@@ -44,16 +44,16 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     bg-violet-500/10 border border-violet-500/20 backdrop-blur-md"
                 >
                     <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-400"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-300 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                     </span>
 
-                    <span className="text-sm md:text-base tracking-wide text-violet-300 font-medium">
+                    <span className="text-sm md:text-base tracking-wide text-violet-500 font-medium">
                         Actively seeking opportunities
                     </span>
                 </motion.div>
 
-                <motion.h1 className="text-6xl md:text-7xl lg:text-5xl font-bold tracking-tight">
+                <motion.h1 className="text-9xl md:text-9xl lg:text-5xl font-bold tracking-tight">
                     {profile.name.split("").map((char, i) => (
                         <motion.span
                             key={i}
@@ -70,7 +70,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="text-lg md:text-xl lg:text-2xl tracking-widest uppercase text-neutral-500 font-medium"
+                    className="text-xl md:text-xl lg:text-2xl tracking-widest uppercase text-neutral-600 font-medium"
                 >
                     {profile.title}
                 </motion.p>
@@ -80,7 +80,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
-                    className="text-base md:text-lg lg:text-xl text-neutral-400 max-w-4xl leading-relaxed italic"
+                    className="text-base md:text-lg lg:text-xl text-neutral-500 max-w-4xl leading-relaxed italic"
                 >
                     "If you want to be the best, you have to do the things that other people aren’t willing to do."
                 </motion.p>
@@ -130,7 +130,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             style={{ animationDuration: '3s' }}
                         />
 
-                        <span className="relative flex items-center justify-center px-12 py-3 rounded-full text-base md:text-lg font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
+                        <span className="relative flex items-center justify-center px-4 py-2.5 rounded-full text-base md:text-lg font-semibold bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Explore My Work →
                         </span>
                     </motion.button>
@@ -150,7 +150,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                             style={{ animationDuration: '3s' }}
                         />
 
-                        <span className="relative flex items-center justify-center px-12 py-3 rounded-full text-base md:text-lg font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
+                        <span className="relative flex items-center justify-center px-4 py-2.5 rounded-full text-base md:text-lg font-medium bg-white dark:bg-neutral-900 text-black dark:text-white group-hover:bg-neutral-50 dark:group-hover:bg-neutral-800 transition-colors">
                             Download my CV!
                         </span>
                     </motion.a>
@@ -162,7 +162,7 @@ export default function IntroScreen({ onEnter }: IntroScreenProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
-                className="absolute bottom-10 text-base text-neutral-400"
+                className="absolute bottom-10 text-base text-neutral-500"
             >
                 Press Enter or click to begin
             </motion.p>
