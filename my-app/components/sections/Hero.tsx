@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { motion, HTMLMotionProps } from "framer-motion";
 import Image from "next/image";
 import { profile, skills } from "@/data/profile";
+import { BentoGrid } from "@/components/ui/BentoGrid";
 
 const fadeUp = (delay = 0): HTMLMotionProps<"div"> => ({
     initial: { opacity: 0, y: 30 },
@@ -24,6 +25,17 @@ export default function Hero() {
 
     return (
         <div className="w-full min-h-screen relative overflow-hidden pt-24 pb-16">
+            <div className="absolute inset-0 -z-20 pointer-events-none opacity-20 blur-xl">
+                <BentoGrid className="h-full gap-4 px-6 py-8">
+                    {Array.from({ length: 10 }).map((_, index) => (
+                        <div
+                            key={index}
+                            className="rounded-3xl border border-white/10 bg-white/5 dark:bg-black/5 shadow-sm backdrop-blur-sm min-h-[100px]"
+                        />
+                    ))}
+                </BentoGrid>
+            </div>
+
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div
                     className="absolute inset-0"
@@ -118,7 +130,7 @@ export default function Hero() {
                             className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-[480px] lg:h-[480px]"
                         >
                             <Image
-                                src="/avt.png"
+                                src="/avt.jpeg"
                                 alt="Khang Profile Picture"
                                 fill
                                 className="object-contain drop-shadow-[0_25px_60px_rgba(99,102,241,0.5)] dark:drop-shadow-[0_25px_60px_rgba(99,102,241,0.3)]"
