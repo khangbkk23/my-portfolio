@@ -22,6 +22,11 @@ export async function POST(req: Request) {
 
         const lastMessage = messages[messages.length - 1].content;
 
+        const recentContextForIntent = messages
+            .slice(-3)
+            .map((m: any) => m.content)
+            .join(" ");
+
         function detectLang(text: string) {
             const hasVietnamese = /[ăâđêôơưáàảãạ]/i.test(text);
             return hasVietnamese ? "vi" : "en";
@@ -46,7 +51,7 @@ export async function POST(req: Request) {
             const intents = [
                 {
                     name: "projects",
-                    keywords: ["project", "projects", "build", "dự án", "sản phẩm", "system", "app", "github", "deploy", "portfolio", "làm ra"],
+                    keywords: ["project", "projects", "build", "dự án", "sản phẩm", "system", "app", "github", "deploy", "portfolio", "làm ra", "kết quả", "results", "result"],
                     data: { projects },
                 },
                 {
@@ -114,7 +119,7 @@ export async function POST(req: Request) {
             return finalContext;
         }
 
-        const activeContext = buildContext(lastMessage);
+        const activeContext = buildContext(recentContextForIntent);
         const contextDataString = JSON.stringify(activeContext);
 
         const systemPrompt = `

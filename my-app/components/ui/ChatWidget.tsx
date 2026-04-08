@@ -125,7 +125,7 @@ export default function ChatWidget() {
                                     <p className="text-sm font-semibold text-black dark:text-white leading-none">Khang&apos;s Assistant</p>
                                     <div className="flex items-center gap-1 mt-1">
                                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                        <span className="text-[10px] text-neutral-500 font-medium">Online · Powered by Groq AI</span>
+                                        <span className="text-[10px] text-neutral-500 font-medium">Online · RAG-lite technique - Powered by Groq AI</span>
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +231,7 @@ export default function ChatWidget() {
                                 <button
                                     onClick={() => sendMessage(input)}
                                     disabled={!input.trim() || loading}
-                                    className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-violet-700 hover:shadow-md transition-all shrink-0"
+                                    className="w-8 h-8 rounded-full bg-violet-600 flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-violet-700 hover:shadow-md transition-all shrink-0"
                                 >
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -256,7 +256,7 @@ export default function ChatWidget() {
                             }}
                             className="absolute right-[70px] whitespace-nowrap px-4 py-2.5 bg-neutral-900 dark:bg-white text-white dark:text-black text-sm font-semibold rounded-xl shadow-xl pointer-events-none flex items-center"
                         >
-                            Ask AI about Khang
+                            Ask AI assistant about Khang
                             <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-neutral-900 dark:border-l-white" />
                         </motion.div>
                     )}
@@ -271,7 +271,7 @@ export default function ChatWidget() {
                     onMouseLeave={() => setIsHovered(false)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/40 flex items-center justify-center relative overflow-hidden"
+                    className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/40 flex items-center justify-center relative"
                 >
                     <AnimatePresence mode="wait">
                         {open ? (
@@ -301,7 +301,7 @@ export default function ChatWidget() {
                         )}
                     </AnimatePresence>
                     {!open && (
-                        <span className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
+                        <span className="absolute top-[2px] right-[2px] w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950 z-10" />
                     )}
                 </motion.button>
             </div>
