@@ -11,12 +11,12 @@ type Message = {
 };
 
 const SUGGESTED_QUESTIONS = [
-    "What projects has Khang built?",
-    "What are his technical skills?",
-    "Khang đang sống và làm việc ở đâu?",
-    "Khang có thành tích gì nổi bật không?",
-    "What is Khang's background and experience?",
-    "How can I contact Khang?",
+    { text: "What are his AI projects and tech stack?" },
+    { text: "Kỹ năng lập trình và framework của Khang?" },
+    { text: "Tell me about his research" },
+    { text: "Anh ấy học trường nào và GPA bao nhiêu?" },
+    { text: "Khang có hoạt động hay giải thưởng gì?" },
+    { text: "Does he have any professional certificates?" },
 ];
 
 export default function ChatWidget() {
@@ -28,7 +28,7 @@ export default function ChatWidget() {
         {
             id: "welcome",
             role: "assistant",
-            content: "Hi! I'm Khang's AI assistant 👋 Ask me anything about his skills, projects, or background — in English or Vietnamese!",
+            content: "Hi! I'm Khang's AI assistant 👋 Ask me anything about his **skills**, **projects**, or **background** — in English or Vietnamese!",
         },
     ]);
     const [input, setInput] = useState("");
@@ -37,7 +37,6 @@ export default function ChatWidget() {
     const bottomRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // Tự động hiện gợi ý sau 3 giây
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowHint(true);
@@ -50,7 +49,7 @@ export default function ChatWidget() {
             bottomRef.current?.scrollIntoView({ behavior: "smooth" });
             setTimeout(() => inputRef.current?.focus(), 300);
         }
-    }, [open, messages]);
+    }, [open, messages, loading]);
 
     const sendMessage = async (text: string) => {
         if (!text.trim() || loading) return;
@@ -115,20 +114,18 @@ export default function ChatWidget() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.92, y: 16 }}
                         transition={{ type: "spring", stiffness: 300, damping: 28 }}
-                        className="fixed bottom-24 right-5 z-50 w-100 h-200 max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-2xl overflow-hidden"
-                        style={{ height: "600px" }}
+                        className="fixed bottom-24 right-5 z-50 w-[350px] sm:w-[400px] h-[500px] sm:h-[600px] max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-2xl overflow-hidden"
                     >
-                        {/* Header */}
                         <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950 shrink-0">
                             <div className="flex items-center gap-2.5">
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
                                     K
                                 </div>
                                 <div>
-                                    <p className="text-sm font-semibold text-black dark:text-white leading-none">Khang's Assistant</p>
-                                    <div className="flex items-center gap-1 mt-0.5">
+                                    <p className="text-sm font-semibold text-black dark:text-white leading-none">Khang&apos;s Assistant</p>
+                                    <div className="flex items-center gap-1 mt-1">
                                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                        <span className="text-[10px] text-neutral-400">Online · Powered by Groq</span>
+                                        <span className="text-[10px] text-neutral-500 font-medium">Online · Powered by Groq AI</span>
                                     </div>
                                 </div>
                             </div>
@@ -142,8 +139,7 @@ export default function ChatWidget() {
                             </button>
                         </div>
 
-                        {/* Messages */}
-                        <div className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-3 scroll-smooth">
+                        <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 scroll-smooth">
                             {messages.map((msg) => (
                                 <motion.div
                                     key={msg.id}
@@ -153,30 +149,41 @@ export default function ChatWidget() {
                                     className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                                 >
                                     <div
-                                        className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${msg.role === "user"
-                                                ? "bg-violet-600 text-white rounded-br-sm"
-                                                : "bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-bl-sm"
-                                            }`}
+                                        className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                                            msg.role === "user"
+                                                ? "bg-violet-600 text-white rounded-br-sm shadow-sm"
+                                                : "bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-bl-sm shadow-sm"
+                                        }`}
                                     >
-                                        <ReactMarkdown>
+                                        <ReactMarkdown
+                                            components={{
+                                                a: ({ node, ...props }) => (
+                                                    <a {...props} target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 underline underline-offset-2 font-medium" />
+                                                ),
+                                                p: ({ node, ...props }) => <p {...props} className="mb-2 last:mb-0" />,
+                                                ul: ({ node, ...props }) => <ul {...props} className="list-disc ml-4 mb-2 space-y-1" />,
+                                                ol: ({ node, ...props }) => <ol {...props} className="list-decimal ml-4 mb-2 space-y-1" />,
+                                                li: ({ node, ...props }) => <li {...props} className="" />,
+                                                strong: ({ node, ...props }) => <strong {...props} className="font-semibold text-black dark:text-white" />
+                                            }}
+                                        >
                                             {msg.content}
                                         </ReactMarkdown>
                                     </div>
                                 </motion.div>
                             ))}
 
-                            {/* Typing indicator */}
                             {loading && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 8 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     className="flex justify-start"
                                 >
-                                    <div className="bg-neutral-100 dark:bg-neutral-800 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1 items-center">
+                                    <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1.5 items-center shadow-sm">
                                         {[0, 1, 2].map((i) => (
                                             <motion.span
                                                 key={i}
-                                                className="w-1.5 h-1.5 rounded-full bg-neutral-400"
+                                                className="w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-500"
                                                 animate={{ y: [0, -4, 0] }}
                                                 transition={{ repeat: Infinity, duration: 0.8, delay: i * 0.15 }}
                                             />
@@ -185,50 +192,49 @@ export default function ChatWidget() {
                                 </motion.div>
                             )}
 
-                            {/* Suggested questions */}
-                            {showSuggestions && messages.length === 1 && (
+                            {showSuggestions && messages.length === 1 && !loading && (
                                 <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.3 }}
-                                    className="flex flex-col gap-1.5 mt-1"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4, duration: 0.3 }}
+                                    className="flex flex-col gap-2 mt-2"
                                 >
-                                    <p className="text-sm text-neutral-400 uppercase tracking-wider font-medium">Suggested</p>
-                                    {SUGGESTED_QUESTIONS.map((q) => (
-                                        <button
-                                            key={q}
-                                            onClick={() => sendMessage(q)}
-                                            className="text-left text-sm px-3 py-2 rounded-xl border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/30 transition-all duration-150"
-                                        >
-                                            {q}
-                                        </button>
-                                    ))}
+                                    <p className="text-xs text-neutral-400 font-semibold uppercase tracking-wider ml-1">Suggested Topics</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {SUGGESTED_QUESTIONS.map((q, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => sendMessage(q.text)}
+                                                className="text-left text-[13px] px-3 py-2 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 text-neutral-700 dark:text-neutral-300 hover:border-violet-300 dark:hover:border-violet-700 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-all duration-200 shadow-sm"
+                                            >
+                                                {q.text}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </motion.div>
                             )}
-
-                            <div ref={bottomRef} />
+                            <div ref={bottomRef} className="h-1" />
                         </div>
 
-                        {/* Input */}
-                        <div className="px-3 py-3 border-t border-neutral-100 dark:border-neutral-800 shrink-0">
-                            <div className="flex items-center gap-2 bg-neutral-100 dark:bg-neutral-800 rounded-xl px-3 py-2">
+                        <div className="px-4 py-3 border-t border-neutral-100 dark:border-neutral-800 shrink-0 bg-white dark:bg-neutral-950">
+                            <div className="flex items-center gap-2 bg-neutral-100 dark:bg-neutral-900 border border-transparent focus-within:border-violet-500/30 focus-within:bg-white dark:focus-within:bg-neutral-950 rounded-xl px-3 py-2 transition-all shadow-inner">
                                 <input
                                     ref={inputRef}
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={handleKeyDown}
-                                    placeholder="Ask about Khang..."
+                                    placeholder="Ask about Khang's resume..."
                                     disabled={loading}
                                     className="flex-1 bg-transparent text-sm text-black dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 outline-none disabled:opacity-50"
                                 />
                                 <button
                                     onClick={() => sendMessage(input)}
                                     disabled={!input.trim() || loading}
-                                    className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-violet-700 transition-colors shrink-0"
+                                    className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-violet-700 hover:shadow-md transition-all shrink-0"
                                 >
-                                    <svg className="w-3.5 h-3.5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                                     </svg>
                                 </button>
                             </div>
@@ -237,22 +243,21 @@ export default function ChatWidget() {
                 )}
             </AnimatePresence>
 
-            <div className="fixed bottom-5 right-5 z-50 flex items-center">
+            <div className="fixed bottom-6 right-6 z-50 flex items-center">
                 <AnimatePresence>
-                    {/* Kết hợp showHint (hiện tự động) hoặc isHovered (chuột trỏ vào) */}
                     {(showHint || isHovered) && !open && (
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: [0, -8, 0] }} // Hiệu ứng nhấp nháy sang ngang
-                            exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                            animate={{ opacity: 1, x: [0, -4, 0] }}
+                            exit={{ opacity: 0, x: 10, scale: 0.95 }}
                             transition={{
-                                opacity: { duration: 0.3 },
-                                x: { repeat: Infinity, duration: 2, ease: "easeInOut" } // Lặp lại vô hạn
+                                opacity: { duration: 0.2 },
+                                x: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
                             }}
-                            className="absolute right-[70px] whitespace-nowrap px-4 py-2.5 bg-neutral-800 dark:bg-white text-white dark:text-black text-sm font-semibold rounded-xl shadow-xl pointer-events-none flex items-center"
+                            className="absolute right-[70px] whitespace-nowrap px-4 py-2.5 bg-neutral-900 dark:bg-white text-white dark:text-black text-sm font-semibold rounded-xl shadow-xl pointer-events-none flex items-center"
                         >
-                            Ask AI Assistant about Khang
-                            <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-neutral-800 dark:border-l-white" />
+                            Ask AI about Khang
+                            <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-neutral-900 dark:border-l-white" />
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -260,13 +265,13 @@ export default function ChatWidget() {
                 <motion.button
                     onClick={() => {
                         setOpen((prev) => !prev);
-                        setShowHint(false); // Tắt vĩnh viễn hint sau khi click mở chat
+                        setShowHint(false);
                     }}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    whileHover={{ scale: 1.08 }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-700 to-cyan-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center relative"
+                    className="w-14 h-14 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/40 flex items-center justify-center relative overflow-hidden"
                 >
                     <AnimatePresence mode="wait">
                         {open ? (
@@ -276,7 +281,7 @@ export default function ChatWidget() {
                                 animate={{ rotate: 0, opacity: 1 }}
                                 exit={{ rotate: 90, opacity: 0 }}
                                 transition={{ duration: 0.15 }}
-                                className="w-5 h-5"
+                                className="w-6 h-6"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -288,7 +293,7 @@ export default function ChatWidget() {
                                 animate={{ rotate: 0, opacity: 1 }}
                                 exit={{ rotate: -90, opacity: 0 }}
                                 transition={{ duration: 0.15 }}
-                                className="w-5 h-5"
+                                className="w-6 h-6"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -296,7 +301,7 @@ export default function ChatWidget() {
                         )}
                     </AnimatePresence>
                     {!open && (
-                        <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
+                        <span className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-950" />
                     )}
                 </motion.button>
             </div>

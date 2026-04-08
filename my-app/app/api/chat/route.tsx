@@ -81,7 +81,6 @@ export async function POST(req: Request) {
                 },
                 {
                     name: "languages",
-                    // Từ "ngôn ngữ" ở đây hoàn toàn an toàn, chỉ bắt khi người dùng hỏi về giao tiếp/ngoại ngữ
                     keywords: ["english", "tiếng anh", "ngoại ngữ", "toeic", "giao tiếp", "nói", "ngôn ngữ"],
                     data: { languages },
                 }
