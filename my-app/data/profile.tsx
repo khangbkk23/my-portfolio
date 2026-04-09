@@ -179,6 +179,24 @@ export const gridItems: GridItemProps[] = [
 
 export const certificates = [
     {
+        title: "IBM Spectrum Storage for AI and Big Data Fundamentals",
+        platform: "IBM",
+        company: "IBM",
+        status: "Completed",
+        period: "Issued Apr 2026",
+        desc: "Skills: Machine Learning, Big Data, AI Storage Infrastructure. (Credential ID: 86f6dd71-637a-4dc6-9ff2-87652be36742)",
+        url: "https://www.credly.com/badges/86f6dd71-637a-4dc6-9ff2-87652be36742", // Mặc định URL Credential của IBM thường trỏ về Credly
+    },
+    {
+        title: "Quantum Machine Learning",
+        platform: "IBM",
+        company: "IBM",
+        status: "Completed",
+        period: "Issued Apr 2026",
+        desc: "Skills: Machine Learning, Quantum Machine Learning. (Credential ID: eaa92417-67d3-41f6-bd9a-54a1dbeb14fc)",
+        url: "https://www.credly.com/badges/eaa92417-67d3-41f6-bd9a-54a1dbeb14fc", // Mặc định URL Credential của IBM thường trỏ về Credly
+    },
+    {
         title: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize [2025]",
         platform: "Udemy",
         company: "SuperDataScienceTeam",
